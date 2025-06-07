@@ -10,7 +10,7 @@ import EmailSuggestions from "./EmailSuggestions";
 import "./style.css";
 
 const EmailInput = () => {
-  const [email, setEmail] = useState("Enter recipients...");
+  const [email, setEmail] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [allEmails, setAllEmails] = useState([]);
   const [emailList, setEmailList] = useState([]);
@@ -69,7 +69,10 @@ const EmailInput = () => {
         <label>Recipients:</label>
         <div className="email-list">
           {emailList.map((email, index) => (
-            <span key={index} className="email-item">
+            <span
+              key={index}
+              className="email-item {!validateEmail(email) ?? 'invalid'}"
+            >
               {email}
               <button
                 className="remove-btn"
