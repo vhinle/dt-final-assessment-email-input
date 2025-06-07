@@ -71,7 +71,9 @@ const EmailInput = () => {
           {emailList.map((email, index) => (
             <span
               key={index}
-              className="email-item {!validateEmail(email) ?? 'invalid'}"
+              className={`email-item${
+                !validateEmail(email) ? " invalid-email" : ""
+              }`}
             >
               {email}
               <button
@@ -91,7 +93,7 @@ const EmailInput = () => {
             value={email}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
-            placeholder="Enter recipients..."
+            placeholder=""
           />
         </div>
         <EmailSuggestions suggestions={suggestions} onSelect={handleSelect} />

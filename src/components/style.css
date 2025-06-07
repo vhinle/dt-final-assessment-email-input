@@ -41,7 +41,7 @@
   min-width: 0;
   box-sizing: border-box;
   border: none;
-  padding: 0 36px 0 16px;
+  padding: 0 36px 0 5px;
   font-size: 14px;
   font-weight: bold;
   color: #333;
@@ -61,10 +61,6 @@
   background-color: #f0f0f0;
 }
 
-.invalid-email {
-  background-color: #ff8787;
-}
-
 .email-item .remove-btn {
   display: none;
 }
@@ -78,6 +74,21 @@
   font-size: 14px;
 }
 
+.invalid-email {
+  background-color: #ff6b6b;
+}
+.invalid-email:hover {
+  background-color: #ff6b6b;
+}
+.invalid-email:hover .remove-btn {
+  display: inline;
+  margin-left: 3px;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  background-color: #f44444;
+}
 .dropdown {
   position: absolute;
   top: 100%;
