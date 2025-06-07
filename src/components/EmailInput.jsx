@@ -10,7 +10,7 @@ import EmailSuggestions from "./EmailSuggestions";
 import "./style.css";
 
 const EmailInput = () => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("Enter recipients...");
   const [suggestions, setSuggestions] = useState([]);
   const [allEmails, setAllEmails] = useState([]);
   const [emailList, setEmailList] = useState([]);
@@ -44,7 +44,9 @@ const EmailInput = () => {
   };
 
   const handleSelect = (selectedEmail) => {
-    setEmail(selectedEmail);
+    //setEmail(selectedEmail);
+    setEmailList([...emailList, selectedEmail]);
+    setEmail(""); // Clear input field
     setSuggestions([]); // Clear suggestions after selection
   };
 
@@ -55,7 +57,7 @@ const EmailInput = () => {
       if (!emailList.includes(email)) {
         setEmailList([...emailList, email]);
       }
-     
+
       setEmail(""); // Clear input field
       setSuggestions([]); // Clear suggestions
     }
@@ -79,15 +81,16 @@ const EmailInput = () => {
               </button>
             </span>
           ))}
+
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            placeholder="Enter recipients..."
+          />
         </div>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}
-          placeholder="Enter recipients..."
-        />
         <EmailSuggestions suggestions={suggestions} onSelect={handleSelect} />
       </div>
     </div>

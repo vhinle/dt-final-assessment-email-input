@@ -16,7 +16,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 500px;
 }
 
 .form-group label {
@@ -24,25 +24,55 @@
   font-size: 16px;
   color: #2b2a2a;
 }
-
-.form-group input {
-  height: 48px;
-  width: 100%;
-  box-sizing: border-box;
+.email-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 6px;
+  min-height: 35px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.form-group input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border: none;
   padding: 0 36px 0 16px;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: bold;
   color: #333;
   outline: none;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
-.email-list {
-  position: relative;
-  width: 100%;
+.email-item {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin-right: 6px;
 }
-.email-list input {
-  padding-right: 36px; /* Space for the dropdown icon */
+.email-item:hover {
+  background-color: #f0f0f0;
+}
+
+
+.email-item .remove-btn {
+  display: none;
+}
+.email-item:hover .remove-btn {
+  display: inline;
+  margin-left: 3px;
+  cursor: pointer;
+  color: #888;
+  border: none;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .dropdown {
