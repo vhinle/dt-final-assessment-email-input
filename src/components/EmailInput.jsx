@@ -13,6 +13,7 @@ const EmailInput = () => {
   const [email, setEmail] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [allEmails, setAllEmails] = useState([]);
+  const [emailList, setEmailList] = useState([]);
 
   useEffect(() => {
     fetchData(emails).then((data) => setAllEmails(data));
@@ -26,7 +27,7 @@ const EmailInput = () => {
     // get suggestions based on input
     if (input.trim().length > 0) {
       const filteredEmails = allEmails.filter((emails) =>
-        emails.toLowerCase().includes(input.toLowerCase())
+        emails.toLowerCase().startsWith(input.toLowerCase())
       );
 
       setSuggestions(filteredEmails);
