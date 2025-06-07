@@ -1,0 +1,33 @@
+/*
+  Email Input Styles
+*/
+
+.container {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-size: 16px;
+  color: #2b2a2a;
+}
+
+.form-group input {
+  height: 48px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  padding: 0 10px;
+  font-size: 16px;
+  color: #333;
+}
