@@ -19,6 +19,12 @@ const EmailInput = () => {
     fetchData(emails).then((data) => setAllEmails(data));
   }, []);
 
+  // Validate email format
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   // Handle input change
   const handleChange = (event) => {
     const input = event.target.value;
@@ -41,15 +47,45 @@ const EmailInput = () => {
     setEmail(selectedEmail);
     setSuggestions([]); // Clear suggestions after selection
   };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      if (email.trim() === "") return;
+      // Add email to the list
+      if (!emailList.includes(email)) {
+        setEmailList([...emailList, email]);
+      }
+     
+      setEmail(""); // Clear input field
+      setSuggestions([]); // Clear suggestions
+    }
+  };
+
   return (
     <div className="container">
       <div className="form-group">
         <label>Recipients:</label>
+        <div className="email-list">
+          {emailList.map((email, index) => (
+            <span key={index} className="email-item">
+              {email}
+              <button
+                className="remove-btn"
+                onClick={() => {
+                  setEmailList(emailList.filter((e) => e !== email));
+                }}
+              >
+                &times;
+              </button>
+            </span>
+          ))}
+        </div>
         <input
           type="email"
           name="email"
           value={email}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           placeholder="Enter recipients..."
         />
         <EmailSuggestions suggestions={suggestions} onSelect={handleSelect} />

@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: center;
   background-color: #fff;
+  border-radius: 8px;
 }
 
 .form-group {
@@ -26,11 +27,22 @@
 
 .form-group input {
   height: 48px;
+  width: 100%;
+  box-sizing: border-box;
   border: 1px solid #ccc;
-  border-radius: 2px;
-  padding: 0 10px;
+  border-radius: 4px;
+  padding: 0 36px 0 16px;
   font-size: 16px;
   color: #333;
+  outline: none;
+}
+
+.email-list {
+  position: relative;
+  width: 100%;
+}
+.email-list input {
+  padding-right: 36px; /* Space for the dropdown icon */
 }
 
 .dropdown {
@@ -49,7 +61,7 @@
   overflow-y: auto;
 }
 .dropdown .item {
-  padding: 10px;
+  padding: 15px 10px;
   cursor: pointer;
   font-size: 14px;
 }
