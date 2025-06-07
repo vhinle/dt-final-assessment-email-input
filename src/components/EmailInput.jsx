@@ -4,8 +4,8 @@ const EmailInput = () => {
   return (
     <div className="container">
       <div className="form-group">
-        <label>Email:</label>
-        <input type="email" name="email" />
+        <label>Recipients:</label>
+        <input type="email" name="email" placeholder="Enter recipients..." />
       </div>
     </div>
   );
